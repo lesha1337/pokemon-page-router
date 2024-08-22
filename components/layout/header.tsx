@@ -1,13 +1,6 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useTranslations } from "next-intl";
+import { LocaleSelect } from "@/components/common/LocaleSelect";
 
 export function Header() {
   const t = useTranslations("header");
@@ -29,34 +22,5 @@ export function Header() {
         <LocaleSelect />
       </div>
     </header>
-  );
-}
-
-function useLocale() {
-  const { locale, locales, push, pathname, query, asPath } = useRouter();
-
-  const changeLocale = (nextLocale: string) => {
-    void push({ pathname, query }, asPath, { locale: nextLocale });
-  };
-
-  return { locale: locale!, locales: locales!, changeLocale };
-}
-
-function LocaleSelect() {
-  const { locale, locales, changeLocale } = useLocale();
-
-  return (
-    <Select value={locale} onValueChange={changeLocale}>
-      <SelectTrigger className="w-24">
-        <SelectValue placeholder="Locale" />
-      </SelectTrigger>
-      <SelectContent>
-        {locales.map((l) => (
-          <SelectItem key={l} value={l}>
-            {l}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
   );
 }
