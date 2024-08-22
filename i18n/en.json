@@ -9,7 +9,7 @@
   },
 
   "pokemonPage": {
-    "updatedAtLabel": "Updated at {dateTime}",
+    "updatedAtLabel": "Updated at {dateTime, date, ::ssmmhhyyyyMMdd}",
     "photosSectionTitle": "Photos",
     "abilitiesSectionTitle": "Abilities",
     "formsSectionTitle": "Forms"

@@ -9,7 +9,7 @@
   },
 
   "pokemonPage": {
-    "updatedAtLabel": "{dateTime} に更新",
+    "updatedAtLabel": "{dateTime, date, ::ssmmhhyyyyMMdd} に更新",
     "photosSectionTitle": "写真",
     "abilitiesSectionTitle": "能力",
     "formsSectionTitle": "フォルム"

@@ -58,7 +58,7 @@ export default function PokemonPage({
       <Main>
         <h1 className={"text-5xl capitalize"}>{pokemonData.name}</h1>
         <span suppressHydrationWarning>
-          {t("updatedAtLabel", { dateTime: updatedAt })}
+          {t("updatedAtLabel", { dateTime: new Date(updatedAt) })}
         </span>
 
         <hr />

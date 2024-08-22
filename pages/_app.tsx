@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <NextIntlClientProvider
       locale={router.locale}
       messages={pageProps.messages}
-      timeZone={"UTC"}
+      timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
     >
       <style jsx global>{`
         html {
