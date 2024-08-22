@@ -28,7 +28,10 @@ export const getStaticProps = (async ({ locale, params }) => {
     const updatedAt = new Date().toJSON();
     const messages = (await import(`../../i18n/${locale}.json`)).default;
 
-    return { props: { locale, pokemonData, updatedAt, messages } };
+    return {
+      props: { locale, pokemonData, updatedAt, messages },
+      revalidate: 60,
+    };
   } catch {
     return { notFound: true };
   }

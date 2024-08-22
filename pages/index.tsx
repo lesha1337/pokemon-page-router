@@ -11,7 +11,6 @@ export const getStaticProps = (async (context) => {
       list: await fetchPokemonList(),
       messages: (await import(`../i18n/${context.locale}.json`)).default,
     },
-    revalidate: 60,
   };
 }) satisfies GetStaticProps;
 
