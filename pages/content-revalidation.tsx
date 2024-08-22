@@ -34,6 +34,10 @@ export default function Page() {
     async (url, { arg }: { arg: Required<TRevalidateQueryParams> }) => {
       await fetch(`${url}?${new URLSearchParams(arg)}`);
     },
+    {
+      onSuccess: () => alert("✅"),
+      onError: () => alert("❌"),
+    },
   );
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
