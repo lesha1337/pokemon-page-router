@@ -1,5 +1,5 @@
-import { Header } from "@/components/layout/header";
-import { Main } from "@/components/layout/main";
+import { Header } from "@/components/layout/Header";
+import { MainContent } from "@/components/layout/MainContent";
 import { useTranslations } from "next-intl";
 import {
   Select,
@@ -15,7 +15,9 @@ import { GetStaticProps } from "next";
 import { Button } from "@/components/ui/button";
 import useSWRMutation from "swr/mutation";
 import { TRevalidateQueryParams } from "@/pages/api/revalidate";
+import Link from "next/link";
 
+// fetch translations for the page at build time
 export const getStaticProps = (async (context) => {
   const messages = (await import(`../i18n/${context.locale}.json`)).default;
   return { props: { messages } };
@@ -24,11 +26,13 @@ export const getStaticProps = (async (context) => {
 export default function Page() {
   const t = useTranslations("contentRevalidationPage");
 
+  // fetch the list of Pokémon using SWR for data caching
   const { data: pokemonList } = useSWR(fetchPokemonListURL, fetchPokemonList);
 
   const [selectedPageToRevalidate, setSelectedPageToRevalidate] =
     useState<string>();
 
+  // setup mutation for triggering page revalidation
   const {
     trigger: revalidatePageTrigger,
     isMutating: revalidateRequestPending,
@@ -55,11 +59,12 @@ export default function Page() {
   return (
     <>
       <Header />
-      <Main>
-        <h1 className={"text-4xl"}>{t("heroSectionTitle")}</h1>
-        <p className={"text-xl"}>{t("heroDescription")}</p>
 
-        <form className={"grid gap-4"} onSubmit={handleSubmit}>
+      <MainContent>
+        <h1 className="text-4xl">{t("heroSectionTitle")}</h1>
+        <p className="text-xl">{t("heroDescription")}</p>
+
+        <form className="grid gap-4" onSubmit={handleSubmit}>
           <Select
             value={selectedPageToRevalidate}
             onValueChange={setSelectedPageToRevalidate}
@@ -76,28 +81,38 @@ export default function Page() {
             </SelectContent>
           </Select>
 
-          <a href={selectedPageToRevalidate} target={"_blank"}>
+          {/* Link to open the selected page in a new tab */}
+          <Link
+            href={selectedPageToRevalidate ?? ""}
+            target="_blank"
+            className={
+              !selectedPageToRevalidate
+                ? "opacity-50 pointer-events-none"
+                : undefined
+            }
+          >
             <Button
-              type={"button"}
-              variant={"secondary"}
-              className={"w-full"}
+              type="button"
+              variant="secondary"
+              className="w-full"
               disabled={!selectedPageToRevalidate}
             >
               {t("revalidateFormPageLink", {
-                page: selectedPageToRevalidate ?? "???",
+                page: selectedPageToRevalidate || "...",
               })}
             </Button>
-          </a>
+          </Link>
 
           <Button
+            variant={"destructive"}
             disabled={!selectedPageToRevalidate}
-            className={"w-full"}
-            type={"submit"}
+            className="w-full"
+            type="submit"
           >
             {revalidateRequestPending ? "..." : t("revalidateFormSubmitButton")}
           </Button>
         </form>
-      </Main>
+      </MainContent>
     </>
   );
 }

@@ -2,7 +2,7 @@
   "header": {
     "logoLabel": "🐾 Покемон",
     "homePageLink": "🏠 Главная",
-    "contentRevalidationPageLink": "🔄 Повторная проверка контента"
+    "contentRevalidationPageLink": "🔄 Ревалидация контента"
   },
 
   "indexPage": {
@@ -17,9 +17,9 @@
   },
 
   "contentRevalidationPage": {
-    "heroSectionTitle": "👋 Это страница ручной повторной проверки ISR!",
+    "heroSectionTitle": "👋 Это страница ручной ревалидации ISR страниц!",
     "heroDescription": "🔄 Вы можете использовать её для симуляции обновления контента Strapi",
-    "revalidateFormSelectPlaceholder": "🔍 Выберите покемона для повторной проверки",
+    "revalidateFormSelectPlaceholder": "🔍 Выберите покемона для ревалидации",
     "revalidateFormPageLink": "🔗 Перейти на {page}",
     "revalidateFormSubmitButton": "🔥 Запустить"
   }
