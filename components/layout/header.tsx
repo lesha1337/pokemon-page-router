@@ -15,7 +15,11 @@ export function Header() {
         <div className={"flex gap-6 flex-wrap"}>
           <span className={"font-bold text-red-300"}>{t("logoLabel")}</span>
           <Link href={"/"} className={"text-blue-300"}>
-            {t("homePageLabel")}
+            {t("homePageLink")}
+          </Link>
+
+          <Link href={"/content-revalidation"} className={"text-blue-300"}>
+            {t("contentRevalidationPageLink")}
           </Link>
         </div>
 

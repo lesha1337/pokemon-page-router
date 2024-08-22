@@ -1,17 +1,26 @@
 {
   "header": {
-    "logoLabel": "Покемон",
-    "homePageLabel": "Главная"
+    "logoLabel": "🐾 Покемон",
+    "homePageLink": "🏠 Главная",
+    "contentRevalidationPageLink": "🔄 Повторная проверка контента"
   },
 
   "indexPage": {
-    "title": "Добро пожаловать в зоопарк покемонов!"
+    "title": "🎉 Добро пожаловать в зоопарк покемонов!"
   },
 
   "pokemonPage": {
-    "updatedAtLabel": "Обновлено {dateTime, date, ::ssmmhhyyyyMMdd}",
-    "photosSectionTitle": "Фотографии",
-    "abilitiesSectionTitle": "Способности",
-    "formsSectionTitle": "Формы"
+    "updatedAtLabel": "🕒 Обновлено {dateTime, date, ::ssmmhhyyyyMMdd}",
+    "photosSectionTitle": "📸 Фото",
+    "abilitiesSectionTitle": "💪 Способности",
+    "formsSectionTitle": "🌀 Формы"
+  },
+
+  "contentRevalidationPage": {
+    "heroSectionTitle": "👋 Это страница ручной повторной проверки ISR!",
+    "heroDescription": "🔄 Вы можете использовать её для симуляции обновления контента Strapi",
+    "revalidateFormSelectPlaceholder": "🔍 Выберите покемона для повторной проверки",
+    "revalidateFormPageLink": "🔗 Перейти на {page}",
+    "revalidateFormSubmitButton": "🔥 Запустить"
   }
 }

@@ -9,6 +9,7 @@ export const getStaticProps = (async (context) => {
   return {
     props: {
       list: await fetchPokemonList(),
+      // it can be async fetch from remote resource:
       messages: (await import(`../i18n/${context.locale}.json`)).default,
     },
   };

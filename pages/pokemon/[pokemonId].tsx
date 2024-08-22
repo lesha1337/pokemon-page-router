@@ -26,11 +26,12 @@ export const getStaticProps = (async ({ locale, params }) => {
   try {
     const pokemonData = await fetchPokemonData(pokemonId);
     const updatedAt = new Date().toJSON();
+    // it can be async fetch from remote resource:
     const messages = (await import(`../../i18n/${locale}.json`)).default;
 
     return {
       props: { locale, pokemonData, updatedAt, messages },
-      revalidate: 60,
+      revalidate: 60 * 60, // 1h
     };
   } catch {
     return { notFound: true };

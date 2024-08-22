@@ -1,17 +1,26 @@
 {
   "header": {
-    "logoLabel": "ポケモン",
-    "homePageLabel": "ホーム"
+    "logoLabel": "🐾 ポケモン",
+    "homePageLink": "🏠 ホーム",
+    "contentRevalidationPageLink": "🔄 コンテンツ再検証"
   },
 
   "indexPage": {
-    "title": "ポケモン動物園へようこそ！"
+    "title": "🎉 ポケモン動物園へようこそ！"
   },
 
   "pokemonPage": {
-    "updatedAtLabel": "{dateTime, date, ::ssmmhhyyyyMMdd} に更新",
-    "photosSectionTitle": "写真",
-    "abilitiesSectionTitle": "能力",
-    "formsSectionTitle": "フォルム"
+    "updatedAtLabel": "🕒 更新日時: {dateTime, date, ::ssmmhhyyyyMMdd}",
+    "photosSectionTitle": "📸 写真",
+    "abilitiesSectionTitle": "💪 特性",
+    "formsSectionTitle": "🌀 フォルム"
+  },
+
+  "contentRevalidationPage": {
+    "heroSectionTitle": "👋 これはISR手動再検証ページです！",
+    "heroDescription": "🔄 Strapiコンテンツの更新をシミュレートできます",
+    "revalidateFormSelectPlaceholder": "🔍 再検証するポケモンを選択してください",
+    "revalidateFormPageLink": "🔗 {page}へ移動",
+    "revalidateFormSubmitButton": "🔥 実行"
   }
 }

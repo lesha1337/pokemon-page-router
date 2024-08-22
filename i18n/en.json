@@ -1,17 +1,26 @@
 {
   "header": {
-    "logoLabel": "Pokemon",
-    "homePageLabel": "Home"
+    "logoLabel": "🐾 Pokemon",
+    "homePageLink": "🏠 Home",
+    "contentRevalidationPageLink": "🔄 Content Revalidation"
   },
 
   "indexPage": {
-    "title": "Welcome to the pokemon zoo!"
+    "title": "🎉 Welcome to the pokemon zoo!"
   },
 
   "pokemonPage": {
-    "updatedAtLabel": "Updated at {dateTime, date, ::ssmmhhyyyyMMdd}",
-    "photosSectionTitle": "Photos",
-    "abilitiesSectionTitle": "Abilities",
-    "formsSectionTitle": "Forms"
+    "updatedAtLabel": "🕒 Updated at {dateTime, date, ::ssmmhhyyyyMMdd}",
+    "photosSectionTitle": "📸 Photos",
+    "abilitiesSectionTitle": "💪 Abilities",
+    "formsSectionTitle": "🌀 Forms"
+  },
+
+  "contentRevalidationPage": {
+    "heroSectionTitle": "👋 it's ISR manual revalidation page!",
+    "heroDescription": "🔄 You can use it to simulate Strapi content update behaviour",
+    "revalidateFormSelectPlaceholder": "🔍 Select pokemon to revalidate",
+    "revalidateFormPageLink": "🔗 Visit {page}",
+    "revalidateFormSubmitButton": "🔥RUN"
   }
 }
