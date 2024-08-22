@@ -1,0 +1,17 @@
+{
+  "header": {
+    "logoLabel": "Pokemon",
+    "homePageLabel": "Home"
+  },
+
+  "indexPage": {
+    "title": "Welcome to the pokemon zoo!"
+  },
+
+  "pokemonPage": {
+    "updatedAtLabel": "Updated at {dateTime}",
+    "photosSectionTitle": "Photos",
+    "abilitiesSectionTitle": "Abilities",
+    "formsSectionTitle": "Forms"
+  }
+}

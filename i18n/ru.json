@@ -1,0 +1,17 @@
+{
+  "header": {
+    "logoLabel": "Покемон",
+    "homePageLabel": "Главная"
+  },
+
+  "indexPage": {
+    "title": "Добро пожаловать в зоопарк покемонов!"
+  },
+
+  "pokemonPage": {
+    "updatedAtLabel": "Обновлено {dateTime}",
+    "photosSectionTitle": "Фотографии",
+    "abilitiesSectionTitle": "Способности",
+    "formsSectionTitle": "Формы"
+  }
+}
