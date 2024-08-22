@@ -29,7 +29,10 @@ export default function Page() {
   const [selectedPageToRevalidate, setSelectedPageToRevalidate] =
     useState<string>();
 
-  const { trigger: revalidatePageTrigger } = useSWRMutation(
+  const {
+    trigger: revalidatePageTrigger,
+    isMutating: revalidateRequestPending,
+  } = useSWRMutation(
     "/api/revalidate",
     async (url, { arg }: { arg: Required<TRevalidateQueryParams> }) => {
       await fetch(`${url}?${new URLSearchParams(arg)}`);
@@ -91,7 +94,7 @@ export default function Page() {
             className={"w-full"}
             type={"submit"}
           >
-            {t("revalidateFormSubmitButton")}
+            {revalidateRequestPending ? "..." : t("revalidateFormSubmitButton")}
           </Button>
         </form>
       </Main>
