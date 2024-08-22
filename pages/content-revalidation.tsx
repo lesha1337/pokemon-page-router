@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import useSWR from "swr";
 import { fetchPokemonList, fetchPokemonListURL } from "@/lib/api";
 import { GetStaticProps } from "next";
@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import useSWRMutation from "swr/mutation";
 import { TRevalidateQueryParams } from "@/pages/api/revalidate";
 import Link from "next/link";
+import { useLocale } from "@/lib/hooks/useLocale";
 
 // fetch translations for the page at build time
 export const getStaticProps = (async (context) => {
@@ -47,6 +48,23 @@ export default function Page() {
     },
   );
 
+  const { locales, defaultLocale } = useLocale();
+
+  const selectOptions = useMemo(() => {
+    if (!pokemonList?.results) return [];
+
+    return locales.flatMap((locale) => {
+      return pokemonList.results.map(({ name, path }) => {
+        const fullPath = `${locale === defaultLocale ? "" : `/${locale}`}${path}`;
+
+        return {
+          label: [fullPath, name].join(" – "),
+          value: fullPath,
+        };
+      });
+    });
+  }, [locales, defaultLocale, pokemonList]);
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (selectedPageToRevalidate) {
@@ -73,9 +91,9 @@ export default function Page() {
               <SelectValue placeholder={t("revalidateFormSelectPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
-              {pokemonList?.results?.map(({ name, path }) => (
-                <SelectItem key={path} value={path}>
-                  {path} – {name}
+              {selectOptions.map(({ label, value }) => (
+                <SelectItem key={value} value={value}>
+                  {label}
                 </SelectItem>
               ))}
             </SelectContent>
